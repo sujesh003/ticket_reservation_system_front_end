@@ -23,10 +23,14 @@ export class TicketManagementComponent implements OnInit {
 
   addPayTicket(payTicket: Ticket) {
     console.log('pay ticket', payTicket);
-
+    payTicket.payment = true;
+    payTicket.reserved = true;
+    console.log('paid', payTicket);
   }
 
   addReserveTicket(reserveTicket: Ticket) {
     console.log('reserve', reserveTicket);
+    reserveTicket.reserved = true;
+    console.log('reserved', reserveTicket);
   }
 }
