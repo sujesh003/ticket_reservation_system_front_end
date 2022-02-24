@@ -20,4 +20,13 @@ export class TicketManagementComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  addPayTicket(payTicket: Ticket) {
+    console.log('pay ticket', payTicket);
+
+  }
+
+  addReserveTicket(reserveTicket: Ticket) {
+    console.log('reserve', reserveTicket);
+  }
 }

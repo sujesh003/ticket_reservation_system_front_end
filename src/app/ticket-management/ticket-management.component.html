@@ -19,7 +19,7 @@
     <td mat-cell *matCellDef="let reserveTicket">
       <!--      <button class="btn btn-danger" (click)="reserveTicket(reserveTicket)"> Reserve Ticket</button>-->
       <div *ngIf="reserveTicket.reserved === false; else loggedOut">
-        <button class="btn btn-danger" (click)="reserveTicket(reserveTicket)"> Reserve</button>
+        <button class="btn btn-danger" (click)="addReserveTicket(reserveTicket)"> Reserve</button>
       </div>
       <ng-template #loggedOut>
         Reserved. Thank you !!
@@ -31,7 +31,7 @@
     <th mat-header-cell *matHeaderCellDef> Pay Ticket</th>
     <td mat-cell *matCellDef="let payTicket">
       <div *ngIf="payTicket.payment === false; else loggedOut">
-        <button class="btn btn-danger" (click)="payTicket(payTicket)"> Payment</button>
+        <button class="btn btn-danger" (click)="addPayTicket(payTicket)"> Payment</button>
       </div>
       <ng-template #loggedOut>
         Paid.Thank you !!
@@ -39,12 +39,12 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="delete">
-    <th mat-header-cell *matHeaderCellDef> Action</th>
-    <td mat-cell *matCellDef="let reserveTicket">
-      <button class="btn btn-danger" (click)="reserveTicket(reserveTicket)"> Reserve Ticket</button>
-    </td>
-  </ng-container>
+<!--  <ng-container matColumnDef="delete">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Action</th>-->
+<!--    <td mat-cell *matCellDef="let reserveTicket">-->
+<!--      <button class="btn btn-danger" (click)="addReserveTicket(reserveTicket)"> Reserve Ticket</button>-->
+<!--    </td>-->
+<!--  </ng-container>-->
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
