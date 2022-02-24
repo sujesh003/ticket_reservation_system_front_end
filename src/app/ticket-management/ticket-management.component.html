@@ -1,60 +1,51 @@
 <table mat-table [dataSource]="tickets" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Name</th>
-    <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> Designation</th>
-    <td mat-cell *matCellDef="let employee"> {{employee.description}} </td>
+    <th mat-header-cell *matHeaderCellDef> Description</th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.description}} </td>
   </ng-container>
 
   <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef> Price</th>
-    <td mat-cell *matCellDef="let employee"> {{employee.price}} </td>
+    <th mat-header-cell *matHeaderCellDef>Ticket Price</th>
+    <td mat-cell *matCellDef="let ticket">Rs. {{ticket.price}} </td>
   </ng-container>
 
   <ng-container matColumnDef="reserved">
-    <th mat-header-cell *matHeaderCellDef> Reserved</th>
-    <td mat-cell *matCellDef="let employee"> {{employee.reserved}} </td>
+    <th mat-header-cell *matHeaderCellDef> Reserve Ticket</th>
+    <td mat-cell *matCellDef="let reserveTicket">
+      <!--      <button class="btn btn-danger" (click)="reserveTicket(reserveTicket)"> Reserve Ticket</button>-->
+      <div *ngIf="reserveTicket.reserved === false; else loggedOut">
+        <button class="btn btn-danger" (click)="reserveTicket(reserveTicket)"> Reserve</button>
+      </div>
+      <ng-template #loggedOut>
+        Reserved. Thank you !!
+      </ng-template>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="payment">
-    <th mat-header-cell *matHeaderCellDef> Payment</th>
-    <td mat-cell *matCellDef="let employee"> {{employee.payment}} </td>
+    <th mat-header-cell *matHeaderCellDef> Pay Ticket</th>
+    <td mat-cell *matCellDef="let payTicket">
+      <div *ngIf="payTicket.payment === false; else loggedOut">
+        <button class="btn btn-danger" (click)="payTicket(payTicket)"> Payment</button>
+      </div>
+      <ng-template #loggedOut>
+        Paid.Thank you !!
+      </ng-template>
+    </td>
   </ng-container>
 
-  <!--  <ng-container matColumnDef="delete">-->
-  <!--    <th mat-header-cell *matHeaderCellDef> Action</th>-->
-  <!--    <td mat-cell *matCellDef="let employee">-->
-  <!--      <button class="btn btn-danger" (click)="deleteEmployee(employee)"> Delete Employee</button>-->
-  <!--    </td>-->
-  <!--  </ng-container>-->
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Action</th>
+    <td mat-cell *matCellDef="let reserveTicket">
+      <button class="btn btn-danger" (click)="reserveTicket(reserveTicket)"> Reserve Ticket</button>
+    </td>
+  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-<!--<div class="modal-body">-->
-<!--  <table mat-table class="mat-elevation-z8">-->
-<!--    <thead>-->
-<!--    <tr mat-header-row>-->
-<!--      <th>S.N</th>-->
-<!--      <th>Ticket Description</th>-->
-<!--      <th>Ticket Price</th>-->
-<!--      <th>Ticket Reserved</th>-->
-<!--      <th>Ticket Payment</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr *ngFor="let ticket of tickets; let i = index"-->
-<!--        class="cursor">-->
-<!--      <td mat-cell>{{i + 1}}</td>-->
-<!--      <td mat-cell>{{ticket.description}}</td>-->
-<!--      <td mat-cell>{{ticket.price}}</td>-->
-<!--      <td mat-cell>{{ticket.reserved}}</td>-->
-<!--      <td mat-cell>{{ticket.payment}}</td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
