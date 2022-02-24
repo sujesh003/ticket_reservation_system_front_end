@@ -5,8 +5,8 @@
     <span class="example-spacer"></span>
     <a mat-button *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
     <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/dashboard" class="nav-link">Dashboard</a>
-    <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/ticket-management" class="nav-link">Reserve Ticket</a>
-    <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/ticket-management" class="nav-link">Make Payment</a>
+    <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/ticket-management" class="nav-link">Reservation and Payment</a>
+<!--    <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/ticket-management" class="nav-link">Make Payment</a>-->
     <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Log Out</a>
   </mat-toolbar-row>
 </mat-toolbar>

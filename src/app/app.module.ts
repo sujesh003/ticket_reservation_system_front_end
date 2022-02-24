@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import {BasicAuthHtppInterceptorService} from "./service/basic-auth-interceptor.service";
 import {AngularMaterialModule} from "./angular-material.module";
 import {TicketManagementComponent} from "./ticket-management/ticket-management.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {TicketManagementComponent} from "./ticket-management/ticket-management.c
     FooterComponent,
     LoginComponent,
     LogoutComponent,
-    TicketManagementComponent
+    TicketManagementComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
