@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   username = ''
   password = ''
   invalidLogin = false
-  
-  @Input() error: string | null;
+
+  @Input() error: string | null | undefined;
 
   constructor(private router: Router,
     private loginservice: AuthenticationService) { }
