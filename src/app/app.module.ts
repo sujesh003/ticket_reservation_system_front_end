@@ -11,7 +11,6 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {BasicAuthHtppInterceptorService} from "./service/basic-auth-interceptor.service";
-import {MatCardModule} from "@angular/material/card";
 import {AngularMaterialModule} from "./angular-material.module";
 
 @NgModule({
@@ -23,8 +22,8 @@ import {AngularMaterialModule} from "./angular-material.module";
     LogoutComponent
   ],
   imports: [
-    AngularMaterialModule,
     BrowserModule,
+    AngularMaterialModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
