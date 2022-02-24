@@ -12,6 +12,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {BasicAuthHtppInterceptorService} from "./service/basic-auth-interceptor.service";
 import {AngularMaterialModule} from "./angular-material.module";
+import {TicketManagementComponent} from "./ticket-management/ticket-management.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {AngularMaterialModule} from "./angular-material.module";
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    TicketManagementComponent
   ],
   imports: [
     BrowserModule,
