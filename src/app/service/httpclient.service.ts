@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {PieChartStats} from "../modal/pieChartStats";
 
 export class Employee {
   constructor(
@@ -20,5 +21,9 @@ export class HttpClientService {
 
   getTickets() {
     return this.httpClient.get<Employee[]>("http://localhost:8080/tickets");
+  }
+
+  getStatusCount() {
+    return this.httpClient.get<PieChartStats>("http://localhost:8080/statusCount");
   }
 }

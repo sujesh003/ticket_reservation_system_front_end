@@ -4,6 +4,8 @@ import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
 import {StatsPieChart} from "../modal/data";
+import {HttpClientService} from "../service/httpclient.service";
+import {PieChartStats} from "../modal/pieChartStats";
 
 
 @Component({
@@ -14,6 +16,12 @@ import {StatsPieChart} from "../modal/data";
 export class DashboardComponent implements OnInit {
 
   title = 'D3 Pie Chart in Angular 10';
+
+  pieChartStats: Array<PieChartStats> = [];
+
+  public response: any;
+  public message: string = "Uninitialized";
+
 
   margin = {top: 20, right: 20, bottom: 30, left: 50};
   width: number;
@@ -27,16 +35,40 @@ export class DashboardComponent implements OnInit {
   color: any;
   svg: any;
 
-  constructor() {
+  constructor(private httpClientService: HttpClientService) {
     this.width = 900 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
     this.radius = Math.min(this.width, this.height) / 2;
+    this.getCountOfReserveAndPayment();
   }
 
   ngOnInit() {
     console.log('stats pie char', StatsPieChart);
     this.initSvg();
-    this.drawPie();
+    // this.drawPie();
+  }
+
+  getCountOfReserveAndPayment() {
+    // this.message = "Fetching..";
+    // this.response = "";
+    // this.response = await this.httpClient
+    //   .get<any>(this.apiURL)
+    //   .pipe(delay(1))
+    //   .toPromise();
+    // this.message = "Fetched";
+    // console.log('response', this.response);
+
+    // this.pieChartStats = [{category: 'RESERVED', count: this.response.detail.RESERVED},
+    //   {category: 'PAID', count: this.response.detail.PAID}];
+    // this.drawPie();
+
+    this.httpClientService.getStatusCount().subscribe((res: any) => {
+      console.log('status count res', res);
+      this.pieChartStats = [{category: 'RESERVED', count: res.detail.RESERVED},
+        {category: 'PAID', count: res.detail.PAID}];
+      this.drawPie();
+      console.log('here we go .. pie chart status', this.pieChartStats);
+    });
   }
 
   initSvg() {
@@ -67,8 +99,9 @@ export class DashboardComponent implements OnInit {
   }
 
   drawPie() {
+    console.log('drawinggg', this.pieChartStats);
     const g = this.svg.selectAll('.arc')
-      .data(this.pie(StatsPieChart))
+      .data(this.pie(this.pieChartStats))
       .enter().append('g')
       .attr('class', 'arc');
     g.append('path').attr('d', this.arc)

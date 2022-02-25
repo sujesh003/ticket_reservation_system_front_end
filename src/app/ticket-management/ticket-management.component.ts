@@ -27,6 +27,7 @@ export class TicketManagementComponent implements OnInit {
         console.log('response', response);
         this.handleSuccessfulResponse(response);
       });
+
   }
 
   handleSuccessfulResponse(response: any) {
