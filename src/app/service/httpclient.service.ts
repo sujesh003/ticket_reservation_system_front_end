@@ -3,16 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {PieChartStats} from "../modal/pieChartStats";
 import {Ticket} from "../modal/ticket";
 
-export class Employee {
-  constructor(
-    public empId: string,
-    public name: string,
-    public designation: string,
-    public salary: string
-  ) {
-  }
-}
-
 @Injectable({
   providedIn: "root"
 })
@@ -21,7 +11,7 @@ export class HttpClientService {
   }
 
   getTickets() {
-    return this.httpClient.get<Employee[]>("http://localhost:8080/tickets");
+    return this.httpClient.get<Ticket[]>("http://localhost:8080/tickets");
   }
 
   getStatusCount() {
