@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {PieChartStats} from "../modal/pieChartStats";
+import {Ticket} from "../modal/ticket";
 
 export class Employee {
   constructor(
@@ -25,5 +26,11 @@ export class HttpClientService {
 
   getStatusCount() {
     return this.httpClient.get<PieChartStats>("http://localhost:8080/statusCount");
+  }
+
+  saveTicketInformation(ticket: Ticket) {
+    return this.httpClient.post<Ticket>(
+      'http://localhost:8080/save/ticket',
+      ticket);
   }
 }
