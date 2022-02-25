@@ -112,6 +112,6 @@ export class DashboardComponent implements OnInit {
 
     g.append('text').attr('transform', (d: any) => 'translate(' + this.labelPer.centroid(d) + ')')
       .attr('dy', '.35em')
-      .text((d: any) => d.data.count + '%');
+      .text((d: any) => d.data.count);
   }
 }
