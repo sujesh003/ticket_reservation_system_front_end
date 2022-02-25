@@ -3,7 +3,6 @@ import {Component, OnInit} from '@angular/core';
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
-import {StatsPieChart} from "../modal/data";
 import {HttpClientService} from "../service/httpclient.service";
 import {PieChartStats} from "../modal/pieChartStats";
 
@@ -43,25 +42,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('stats pie char', StatsPieChart);
     this.initSvg();
-    // this.drawPie();
   }
 
   getCountOfReserveAndPayment() {
-    // this.message = "Fetching..";
-    // this.response = "";
-    // this.response = await this.httpClient
-    //   .get<any>(this.apiURL)
-    //   .pipe(delay(1))
-    //   .toPromise();
-    // this.message = "Fetched";
-    // console.log('response', this.response);
-
-    // this.pieChartStats = [{category: 'RESERVED', count: this.response.detail.RESERVED},
-    //   {category: 'PAID', count: this.response.detail.PAID}];
-    // this.drawPie();
-
     this.httpClientService.getStatusCount().subscribe((res: any) => {
       console.log('status count res', res);
       this.pieChartStats = [{category: 'RESERVED', count: res.detail.RESERVED},

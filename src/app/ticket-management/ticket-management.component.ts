@@ -29,21 +29,17 @@ export class TicketManagementComponent implements OnInit {
   }
 
   addPayTicket(payTicket: Ticket) {
-    console.log('pay ticket', payTicket);
     payTicket.payment = true;
     payTicket.reserved = true;
-    console.log('paid', payTicket);
     this.httpClientService.saveTicketInformation(payTicket).subscribe(res => {
-      console.log('saving ticket info', res);
+      console.log(res);
     });
   }
 
   addReserveTicket(reserveTicket: Ticket) {
-    console.log('reserve', reserveTicket);
     reserveTicket.reserved = true;
-    console.log('reserved', reserveTicket);
     this.httpClientService.saveTicketInformation(reserveTicket).subscribe(res => {
-      console.log('saving ticket info', res);
+      console.log(res);
     });
   }
 }
